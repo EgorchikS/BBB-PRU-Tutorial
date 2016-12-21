@@ -1,0 +1,16 @@
+#!/bin/bash
+
+echo "Compiling the overlay from .dts to .dtbo"
+dtc -O dtb -o PRU_DGPO-00A0.dtbo -b 0 -@ PRU_DGPO-00A0.dts
+
+echo "Copy PRU_DGPO-00A0.dtbo to /lib/firmware"
+cp PRU_DGPO-00A0.dtbo /lib/firmware
+
+echo "Loading overlay"
+sh -c "echo 'PRU_DGPO' > $SLOTS"
+
+echo "Compiling PRU assembly code to .bin"
+pasm -b Parallel_output.p
+
+echo "Compiling C code"
+gcc Parallel_output.c -o Parallel_output -lpthread -lprussdrv
