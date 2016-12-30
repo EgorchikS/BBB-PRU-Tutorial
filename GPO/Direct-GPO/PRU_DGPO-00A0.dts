@@ -2,7 +2,7 @@
 * This overlay is based on the BB-BBBMINI-00A0.dts
 * which can be found  in https://github.com/beagleboard/bb.org-overlays/blob/master/src/arm/BB-BBBMINI-00A0.dts
 *
-* Written by EGOR SPIRIDONOV for GPO-Tutorial
+* Written by EGOR SPIRIDONOV for PRU GPIO Tutorial
 */
 /dts-v1/;
 /plugin/;
@@ -59,7 +59,7 @@
                     0x0a4 0x0D   /* lcd_data1.pr1_pru1_pru_r30_1, MODE5 | OUTPUT | PRU */
                     0x0a0 0x0D   /* lcd_data0.pr1_pru1_pru_r30_0, MODE5 | OUTPUT | PRU */
 
-                    0x0a0 0x36   /* uart1_rxd.pr1_pru1_pru_r31_16, MODE6 | INPUT | PRU */
+                    0x180 0x36   /* uart1_rxd.pr1_pru1_pru_r31_16, MODE6 | INPUT | PRU */
             >;
          };
       };
